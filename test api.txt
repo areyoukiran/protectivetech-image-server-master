@@ -1,0 +1,108 @@
+# Create a user
+curl -X POST http://localhost:3000/users \
+-H "Content-Type: application/json" \
+-d '{"name":"John Doe","email":"john@example.com","age":30}'
+
+# Get all users
+curl http://localhost:3000/users
+
+# Get user by ID
+curl http://localhost:3000/users/1
+
+# Update user
+curl -X PUT http://localhost:3000/users/1 \
+-H "Content-Type: application/json" \
+-d '{"name":"John Smith","email":"john@example.com","age":31}'
+
+# Delete user
+curl -X DELETE http://localhost:3000/users/1
+
+
+
+#server user
+curl -X POST http://122.168.206.214:3000/users \
+-H "Content-Type: application/json" \
+-d '{"name":"sunihta","email":"sunihtaaa3@gmail.com","age":30}'
+
+
+
+
+
+# Health Check
+curl http://localhost:3000/health
+
+# Create User (POST)
+curl -X POST http://localhost:3000/users \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "John Doe",
+    "email": "john@example.com",
+    "age": 30
+  }'
+
+# Get All Users (GET)
+# Basic request
+curl http://localhost:3000/users
+
+# With pagination
+curl "http://localhost:3000/users?page=1&limit=10"
+
+# Get Single User (GET)
+# Replace {id} with actual user ID
+curl http://localhost:3000/users/1
+
+# Update User (PUT)
+# Replace {id} with actual user ID
+curl -X PUT http://localhost:3000/users/1 \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "John Updated",
+    "email": "john.updated@example.com",
+    "age": 31
+  }'
+
+# Delete User (DELETE)
+# Replace {id} with actual user ID
+curl -X DELETE http://localhost:3000/users/1
+
+# Test Input Validation - Invalid Email (Should Fail)
+curl -X POST http://localhost:3000/users \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Invalid User",
+    "email": "not-an-email",
+    "age": 25
+  }'
+
+# Test Input Validation - Invalid Age (Should Fail)
+curl -X POST http://localhost:3000/users \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Invalid User",
+    "email": "valid@example.com",
+    "age": -5
+  }'
+
+# Test Multiple Users Creation
+curl -X POST http://localhost:3000/users \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "User One",
+    "email": "user1@example.com",
+    "age": 25
+  }'
+
+curl -X POST http://localhost:3000/users \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "User Two",
+    "email": "user2@example.com",
+    "age": 35
+  }'
+
+# Windows CMD versions (if you're using Windows Command Prompt)
+# Create User
+curl -X POST http://localhost:3000/users -H "Content-Type: application/json" -d "{\"name\": \"John Doe\", \"email\": \"john@example.com\", \"age\": 30}"
+
+# Update User
+curl -X PUT http://localhost:3000/users/1 -H "Content-Type: application/json" -d "{\"name\": \"John Updated\", \"email\": \"john.updated@example.com\", \"age\": 31}"
